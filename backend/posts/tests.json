@@ -18,7 +18,7 @@
       "name": "Create post without auth — 401",
       "method": "POST",
       "path": "/",
-      "body": {"title": "Test", "option_a": "A", "option_b": "B"},
+      "body": {"action": "create", "text": "Hello"},
       "expectedStatus": 401
     }
   ]

@@ -7,18 +7,24 @@
       "expectedStatus": 200
     },
     {
-      "name": "Get Google auth URL",
+      "name": "GET me without session — 401",
       "method": "GET",
-      "path": "/?action=url&redirect_uri=https://example.com/callback",
-      "expectedStatus": 200,
-      "expectedBody": {"url": "string"},
-      "bodyMatcher": "partial"
+      "path": "/",
+      "expectedStatus": 401
     },
     {
-      "name": "Get me without session — 401",
-      "method": "GET",
-      "path": "/?action=me",
+      "name": "Login wrong credentials — 401",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "login", "login": "nobody@test.com", "password": "wrongpass"},
       "expectedStatus": 401
+    },
+    {
+      "name": "Register missing fields — 400",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "register", "name": "", "username": "", "email": "", "password": ""},
+      "expectedStatus": 400
     }
   ]
 }
