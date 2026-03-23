@@ -1,0 +1,25 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Get posts list",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {"posts": []},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Create post without auth — 401",
+      "method": "POST",
+      "path": "/",
+      "body": {"title": "Test", "option_a": "A", "option_b": "B"},
+      "expectedStatus": 401
+    }
+  ]
+}
